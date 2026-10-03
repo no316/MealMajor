@@ -1,5 +1,4 @@
-# MealMajor (Greenland-SOEN341_Project_W26)
-
+# MealMajor
 ## Overview
 MealMajor is an all in one web application designed for students to plan meals, manage groceries, and discover accessible recipes. It aims to simplify meal preparation and promote a healthy lifestyle for users on a busy schedule.
 
