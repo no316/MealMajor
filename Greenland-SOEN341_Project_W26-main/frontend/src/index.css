@@ -1,0 +1,214 @@
+/* MealMajor - Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* MealMajor Color Palette */
+  --mm-green-50: #f1f8e9;
+  --mm-green-100: #dcedc8;
+  --mm-green-200: #c5e1a5;
+  --mm-green-300: #aed581;
+  --mm-green-400: #9ccc65;
+  --mm-green-500: #8bc34a;
+  --mm-green-600: #7cb342;
+  --mm-green-700: #689f38;
+  --mm-green-800: #558b2f;
+  --mm-green-900: #33691e;
+
+  --mm-primary: #43a047;
+  --mm-primary-dark: #2e7d32;
+  --mm-primary-light: #66bb6a;
+
+  --mm-accent: #ff9800;
+  --mm-accent-dark: #f57c00;
+
+  --mm-text-primary: #1a1a2e;
+  --mm-text-secondary: #4a5568;
+  --mm-text-muted: #94a3b8;
+
+  --mm-bg-cream: #f7f8fa;
+  --mm-bg-light: #f0f2f5;
+
+  --mm-radius: 12px;
+  --mm-shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --mm-shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+  --mm-shadow-lg: 0 8px 32px rgba(0,0,0,0.1);
+
+  /* Typography */
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: var(--mm-text-primary);
+  background-color: var(--mm-bg-cream);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 600;
+  color: var(--mm-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--mm-primary-dark);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--mm-text-primary);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.5em;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+button {
+  border-radius: 10px;
+  border: 1px solid transparent;
+  padding: 0.75em 1.5em;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: inherit;
+  background: linear-gradient(135deg, #43a047, #66bb6a);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(67, 160, 71, 0.18);
+}
+
+button:hover {
+  box-shadow: 0 4px 16px rgba(67, 160, 71, 0.3);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(67, 160, 71, 0.2);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 3px solid rgba(67, 160, 71, 0.4);
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(124, 179, 66, 0.25);
+  color: var(--mm-text-primary);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--mm-bg-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mm-green-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mm-green-400);
+}
+
+/* ── Global Animations ── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Loading skeleton */
+.skeleton {
+  background: linear-gradient(90deg, #e8ede6 25%, #f1f5ed 50%, #e8ede6 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* Smooth page transition for main content */
+.app-shell-main > * {
+  animation: fadeInUp 0.35s ease;
+}
+
+/* ── Color-coded dietary tag chips (soft pastel) ── */
+.tag-vegetarian { background: #e8f5e9 !important; color: #2e7d32 !important; border-color: #c8e6c9 !important; }
+.tag-vegan { background: #e0f2f1 !important; color: #00695c !important; border-color: #b2dfdb !important; }
+.tag-gluten-free { background: #fff3e0 !important; color: #e65100 !important; border-color: #ffe0b2 !important; }
+.tag-dairy-free { background: #e3f2fd !important; color: #1565c0 !important; border-color: #bbdefb !important; }
+.tag-nut-free { background: #fce4ec !important; color: #c62828 !important; border-color: #f8bbd0 !important; }
+.tag-pescatarian { background: #e0f2f1 !important; color: #00796b !important; border-color: #b2dfdb !important; }
+.tag-keto { background: #ede7f6 !important; color: #5e35b1 !important; border-color: #d1c4e9 !important; }
+.tag-paleo { background: #fbe9e7 !important; color: #bf360c !important; border-color: #ffccbc !important; }
+.tag-halal { background: #e0f7fa !important; color: #00838f !important; border-color: #b2ebf2 !important; }
+.tag-kosher { background: #e8eaf6 !important; color: #3949ab !important; border-color: #c5cae9 !important; }
+.tag-default { background: #f1f5f9 !important; color: #475569 !important; border-color: #e2e8f0 !important; }

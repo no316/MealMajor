@@ -1,0 +1,88 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://mealmajor.local/schemas/three-course-meal-output.schema.json",
+  "title": "ThreeCourseMealOutput",
+  "description": "Structured Gemini response for a 3-course meal with full recipe details.",
+  "type": "object",
+  "required": ["starter", "mainCourse", "dessert"],
+  "additionalProperties": false,
+  "properties": {
+    "starter": {
+      "$ref": "#/definitions/course"
+    },
+    "mainCourse": {
+      "$ref": "#/definitions/course"
+    },
+    "dessert": {
+      "$ref": "#/definitions/course"
+    }
+  },
+  "definitions": {
+    "course": {
+      "type": "object",
+      "description": "One course with full recipe details.",
+      "required": ["name", "description", "servings", "prepTime", "cookTime", "ingredients", "instructions"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Dish name."
+        },
+        "description": {
+          "type": "string",
+          "description": "Short description or summary of the dish."
+        },
+        "servings": {
+          "type": "string",
+          "description": "Number of servings."
+        },
+        "prepTime": {
+          "type": "string",
+          "description": "Preparation time in minutes."
+        },
+        "cookTime": {
+          "type": "string",
+          "description": "Cooking time in minutes."
+        },
+        "ingredients": {
+          "type": "array",
+          "description": "List of ingredients with amounts.",
+          "items": {
+            "type": "object",
+            "required": ["name", "amount", "unit"],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "amount": {
+                "type": "string"
+              },
+              "unit": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "instructions": {
+          "type": "array",
+          "description": "Step-by-step cooking instructions.",
+          "items": {
+            "type": "object",
+            "required": ["step"],
+            "additionalProperties": false,
+            "properties": {
+              "step": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "image": {
+          "type": "string",
+          "description": "URL to an image of the dish."
+        }
+      }
+    }
+  }
+}

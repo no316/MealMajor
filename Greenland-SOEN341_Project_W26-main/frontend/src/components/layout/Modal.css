@@ -1,0 +1,188 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  animation: modalFadeIn 0.25s ease;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.08);
+  max-width: 480px;
+  width: 90%;
+  animation: modalScaleIn 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 12px;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2d3a28;
+}
+
+.modal-warning .modal-title {
+  color: #e65100;
+}
+
+.modal-error .modal-title {
+  color: #c62828;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #94a3b8;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+  box-shadow: none;
+}
+
+.modal-close:hover {
+  background: #f1f5f9;
+  color: #475569;
+  transform: none;
+  box-shadow: none;
+}
+
+.modal-body {
+  padding: 0 24px 24px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #475569;
+}
+
+.modal-body p {
+  margin: 0 0 16px;
+}
+
+.modal-body p:last-child {
+  margin-bottom: 0;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.modal-btn-secondary {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  box-shadow: none;
+}
+
+.modal-btn-secondary:hover {
+  background: #e2e8f0;
+  box-shadow: none;
+  transform: none;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ── Assign Modal Body ── */
+.assign-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.assign-modal-body .assign-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.assign-modal-body .assign-field {
+  flex: 1 1 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.assign-modal-body .assign-field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--mm-text-secondary, #4a5568);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 2px;
+}
+
+.assign-modal-body input[type="date"],
+.assign-modal-body select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1.5px solid #e5e7eb;
+  font-size: 14px;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  color: #333;
+}
+
+.assign-modal-body select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center;
+  padding-right: 32px;
+  cursor: pointer;
+}
+
+.assign-modal-body input[type="date"]:focus,
+.assign-modal-body select:focus {
+  outline: none;
+  border-color: #43a047;
+  box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.12);
+}
+
+.assign-modal-body .assign-recipe-name {
+  font-weight: 700;
+  color: var(--mm-text-primary, #1a1a2e);
+  font-size: 16px;
+  margin: 0 0 4px 0;
+}

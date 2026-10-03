@@ -1,0 +1,632 @@
+.diet-meals-container {
+  width: 100%;
+  padding: 0 0 40px 0;
+  position: relative;
+  background: var(--mm-bg-cream, #f7f8fa);
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+.diet-meals-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 220px;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.28), rgba(247,248,250,1)),
+    url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.diet-meals-container > * {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.diet-meals-container h1 {
+  margin-top: 0;
+  margin-bottom: 28px;
+  padding-top: 24px;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  background: none;
+}
+
+.profile-avatar-btn {
+  background-color: #43a047 !important;
+  border: none;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.profile-avatar-btn:hover {
+  background-color: var(--mm-primary-light, #7cb342) !important;
+  transform: scale(1.08);
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justifyifyContent: center;
+}
+
+.questionnaire-placeholder {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  margin-bottom: 30px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.dietary-preferences {
+  border: 1px solid #e5e7eb;
+  padding: 20px 24px;
+  margin-bottom: 30px;
+  background: #fff;
+  border-radius: var(--mm-radius, 12px);
+  box-shadow: var(--mm-shadow-sm, 0 1px 3px rgba(0,0,0,0.06));
+}
+
+.dietary-preferences h2 {
+  margin-top: 0;
+  color: var(--mm-text-primary, #1a1a2e);
+  font-size: 1.2em;
+}
+
+.preferences-content {
+  margin-bottom: 15px;
+}
+
+.preference-item {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.preference-item strong {
+  color: #495057;
+}
+
+.preferences-note {
+  font-size: 14px;
+  color: #6c757d;
+  font-style: italic;
+  margin: 0;
+}
+
+.generate-section {
+  margin-bottom: 30px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 15px;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+
+/* Scoped button styles for this page */
+.diet-meals-container button {
+  background: linear-gradient(135deg, #43a047, #66bb6a);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(67,160,71,0.18);
+  transition: all 0.2s ease;
+}
+
+.diet-meals-container button:hover {
+  box-shadow: 0 4px 16px rgba(67,160,71,0.3);
+  transform: translateY(-1px);
+}
+
+.diet-meals-container button:disabled {
+  background: #cbd5e1;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Meal Display - Improved Course Cards */
+.meal-display {
+  margin-top: 28px;
+}
+
+.meal-display h2 {
+  margin: 0 0 24px 0;
+  color: #1f2937;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.courses {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.course-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--mm-radius, 12px);
+  overflow: hidden;
+  box-shadow: var(--mm-shadow-md, 0 4px 16px rgba(0,0,0,0.08));
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: fadeInUp 0.5s ease;
+}
+
+.course-card:hover {
+  transform: scale(1.02);
+  box-shadow: var(--mm-shadow-lg, 0 8px 32px rgba(0,0,0,0.1));
+}
+
+.course-header {
+  background: linear-gradient(135deg, #43a047, #66bb6a);
+  padding: 16px 20px;
+}
+
+.course-header h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.course-image {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+
+.course-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-loading-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  color: #888;
+  font-style: italic;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.course-content {
+  padding: 20px 24px;
+}
+
+.course-content h4 {
+  margin: 0 0 12px 0;
+  color: #111827;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.course-content .description {
+  margin: 0 0 16px 0;
+  color: #4b5563;
+  line-height: 1.6;
+  font-size: 0.98rem;
+}
+
+.recipe-section {
+  margin: 16px 0;
+  padding: 12px 0;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.recipe-section h5 {
+  margin: 0 0 10px 0;
+  color: #374151;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.expand-toggle {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.2s ease;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.expand-toggle:hover {
+  opacity: 0.8;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.expand-toggle h5 {
+  margin: 0;
+  color: #374151;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.recipe-section ul,
+.recipe-section ol {
+  margin: 0;
+  padding-left: 20px;
+  color: #4b5563;
+  font-size: 0.93rem;
+  line-height: 1.6;
+}
+
+.recipe-section li {
+  margin-bottom: 6px;
+}
+
+.course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 16px 0;
+  padding: 12px 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+  border-top: 1px solid #e5e7eb;
+}
+
+.course-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.save-recipe-btn {
+  width: 100%;
+  padding: 12px 16px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #43a047, #66bb6a);
+  color: white;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(67,160,71,0.18);
+}
+
+.save-recipe-btn:hover {
+  box-shadow: 0 4px 16px rgba(67,160,71,0.3);
+  transform: translateY(-1px);
+}
+
+.save-recipe-btn:active {
+  transform: translateY(0);
+}
+
+/* Old styles to remove */
+.course {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.course h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.course h4 {
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.course p {
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.course button {
+  background-color: #28a745;
+}
+
+.course button:hover {
+  background-color: #218838;
+}
+
+/* Generate button update */
+.generate-btn {
+  background-color: var(--mm-primary, #43a047);
+  border: 1px solid transparent;
+  font-size: 1.1rem;
+  padding: 14px 32px;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.15s ease;
+}
+
+.generate-btn:hover:not(:disabled) {
+  background-color: var(--mm-primary-light, #7cb342);
+}
+
+.generate-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.diet-questionnaire {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--mm-radius, 12px);
+  padding: 24px;
+  margin-bottom: 28px;
+  animation: fadeInUp 0.4s ease;
+  box-shadow: var(--mm-shadow-sm, 0 1px 3px rgba(0,0,0,0.06));
+}
+
+.diet-questionnaire h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--mm-text-primary, #1a1a2e);
+}
+
+.diet-questionnaire p {
+  margin: 0 0 20px 0;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.questionnaire-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.diet-questionnaire .input-group {
+  margin-bottom: 0;
+}
+
+.diet-questionnaire .input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.input-group-full {
+  grid-column: 1 / -1;
+}
+
+.diet-questionnaire input,
+.diet-questionnaire select,
+.diet-questionnaire textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.diet-questionnaire select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.diet-questionnaire input::placeholder,
+.diet-questionnaire textarea::placeholder {
+  color: #94a3b8;
+}
+
+.diet-questionnaire input:focus,
+.diet-questionnaire select:focus,
+.diet-questionnaire textarea:focus {
+  outline: none;
+  border-color: #43a047;
+  box-shadow: 0 0 0 4px rgba(67, 160, 71, 0.12);
+}
+
+.diet-questionnaire textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Small helper row if you later want to show saved preferences */
+.questionnaire-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.questionnaire-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #4338ca;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+/* Generate section polish */
+.generate-section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: var(--mm-radius, 12px);
+  padding: 24px;
+  box-shadow: var(--mm-shadow-sm, 0 1px 3px rgba(0,0,0,0.06));
+}
+
+.generate-section h2 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  color: var(--mm-text-primary, #1a1a2e);
+}
+
+.generate-section button {
+  min-width: 180px;
+  padding: 12px 18px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background-color: var(--mm-primary, #43a047);
+  color: white;
+  font-weight: 700;
+  font-size: 0.98rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.generate-section button:hover:not(:disabled) {
+  background-color: var(--mm-primary-light, #7cb342);
+}
+
+.generate-section button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Result cards if your generated courses are shown below */
+.generated-meal {
+  margin-top: 28px;
+  display: grid;
+  gap: 16px;
+}
+
+.generated-course-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-left: 5px solid #4f46e5;
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+}
+
+.generated-course-card h3 {
+  margin: 0 0 8px 0;
+  color: #111827;
+  font-size: 1.05rem;
+}
+
+.generated-course-card p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.55;
+}
+
+/* Success / error banners */
+.mealplan-message-success,
+.error {
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-top: 14px;
+  font-weight: 600;
+}
+
+.mealplan-message-success {
+  background: #ecfdf3;
+  border: 1px solid #a7f3d0;
+  color: #047857;
+}
+
+.error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .diet-questionnaire,
+  .generate-section {
+    padding: 18px;
+  }
+
+  .questionnaire-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .input-group-full {
+    grid-column: auto;
+  }
+
+  .generate-section button {
+    width: 100%;
+  }
+
+  .courses {
+    grid-template-columns: 1fr;
+  }
+}

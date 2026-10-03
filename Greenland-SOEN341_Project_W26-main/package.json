@@ -1,0 +1,20 @@
+{
+  "name": "greenland-soen341_project_w26",
+  "version": "1.0.0",
+  "description": "- Luca Lapenna - Developer\r - Justin Le - SCRUM Master\r - Noe Menacho Tardieu - Developer\r - Ewan St-Louis - Developer\r - Majd Tarraf - Developer\r - Becky Zhang - Developer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1mshy/Greenland-SOEN341_Project_W26.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1mshy/Greenland-SOEN341_Project_W26/issues"
+  },
+  "homepage": "https://github.com/1mshy/Greenland-SOEN341_Project_W26#readme"
+}
